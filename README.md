@@ -2,7 +2,7 @@
 Obfuscate java program source code
 
 Turn:
- ```java
+```java
 class HelloWorld{
 	public static void main(String[] args){
 		System.out.println("Hello World");
@@ -29,12 +29,12 @@ Into:
 
 
 FAQ:
----------------------
-Q Does this compile?
-A It does. Java parses the unicode first and it becomes a vaild program again.
-
-Q Why would I want to do this?
-A You don't.
-
-Q Are there any advantages to doing this?
-A No, unless your goal is to create unreadable code.
+---------------------  
+Q Does this compile?  
+A It does. Java parses the unicode first and it becomes a vaild program again.  
+  
+Q Why would I want to do this?  
+A You don't.  
+  
+Q Are there any advantages to doing this?  
+A No, unless your goal is to create unreadable code.  
