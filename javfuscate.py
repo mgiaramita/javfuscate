@@ -25,8 +25,8 @@ def encodeLine(line):
 	newLine = ""
 	for char in line:
 		if isEncodeableChar(char):
-			#5% chance char wont be encoded
-			if random.randint(0,99) <= 95:
+			#10% chance char wont be encoded because why not
+			if random.randint(0,99) <= 90:
 				newLine += encodeChar(char)
 			else:
 				newLine += char
