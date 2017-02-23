@@ -31,7 +31,7 @@ Into:
 FAQ:
 ---------------------  
 Q Does this compile?  
-A It does. Java parses the unicode first and it becomes a vaild program again.  
+A It does. Java decodes the unicode first and it becomes a vaild program again.  
   
 Q Why would I want to do this?  
 A You don't.  
