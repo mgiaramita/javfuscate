@@ -38,3 +38,6 @@ A You don't.
   
 Q Are there any advantages to doing this?  
 A No, unless your goal is to create unreadable code.  
+  
+Q Why don't you convert all the characters in the program?  
+A I like it being a mix of both. It keeps the program structure, but still makes it impossible to read.  
