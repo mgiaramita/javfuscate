@@ -46,12 +46,12 @@ def main():
 	try:
 		output_program = open(output_file_name, 'w')
 	except IOError:
-		print "Could not open program " + input_file_name
+		print "Could not create file " + output_file_name
 	try:
 		java_program = open(input_file_name, 'r')
 		java_program_lines = java_program.readlines()	
 	except IOError:
-		print "Could not create file " + output_file_name
+		print "Could not open program " + input_file_name
 	
 	for line in java_program_lines:
 		output_program.write(encodeLine(line))
