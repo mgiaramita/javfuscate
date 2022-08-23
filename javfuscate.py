@@ -41,17 +41,17 @@ def main():
 	except IndexError:
 		print("Invalid args. Correct usage:")
 		print("    javfuscate <input_file.java>")
-		input_file_name = input('You can also type the file name here with format <input_file.java>: ')
+		input_file_name = input("You can also type the file name here with format <input_file.java>: ")
 		output_file_name = "javfuscate_output_" + input_file_name
 
 	try:
-		with open(input_file_name, 'r') as java_program:
+		with open(input_file_name, "r") as java_program:
 			java_program_lines = java_program.readlines()	
 	except IOError:
 		print("Could not open program " + input_file_name)
 	
 	try:
-		output_program = open(output_file_name, 'w')
+		output_program = open(output_file_name, "w")
 		for line in java_program_lines:
 			output_program.write(encode_line(line))
 	except IOError:
