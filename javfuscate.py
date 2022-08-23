@@ -1,12 +1,12 @@
 #!/usr/bin/python
 import sys, random
 
-def encodeChar(char):
+def encode_char(char):
 	ec = hex(ord(char))
-	ec = "\u00" + ec[2:]
+	ec = r"\u00" + ec[2:]
 	return ec
 
-def isEncodeableChar(char):
+def is_encodable_char(char):
 	try:
 		c = ord(char)
 	except TypeError:
@@ -22,42 +22,43 @@ def isEncodeableChar(char):
 		return False
 
 def encodeLine(line):
-	newLine = ""
+	new_line = ""
 	for char in line:
-		if isEncodeableChar(char):
-			#10% chance char wont be encoded because why not
+		if is_encodable_char(char):
+			# 10% chance char won't be encoded because why not
 			if random.randint(0,99) <= 90:
-				newLine += encodeChar(char)
+				new_line += encode_char(char)
 			else:
-				newLine += char
+				new_line += char
 		else:
-			newLine += char
-	return newLine
+			new_line += char
+	return new_line
 
 def main():
 	try:
 		input_file_name = sys.argv[1]
 		output_file_name = "javfuscate_output_" + input_file_name
 	except IndexError:
-		print "Invalid args. Correct usage:"
-		print "    javfuscate <input_file.java>"
-		return -1
+		print("Invalid args. Correct usage:")
+		print("    javfuscate <input_file.java>")
+		input_file_name = input('You can also type the file name here with format <input_file.java>: ')
+		output_file_name = "javfuscate_output_" + input_file_name
 
+	try:
+		with open(input_file_name, 'r') as java_program:
+			java_program_lines = java_program.readlines()	
+	except IOError:
+		print("Could not open program " + input_file_name)
+	
 	try:
 		output_program = open(output_file_name, 'w')
+		for line in java_program_lines:
+			output_program.write(encodeLine(line))
 	except IOError:
-		print "Could not create file " + output_file_name
-	try:
-		java_program = open(input_file_name, 'r')
-		java_program_lines = java_program.readlines()	
-	except IOError:
-		print "Could not open program " + input_file_name
-	
-	for line in java_program_lines:
-		output_program.write(encodeLine(line))
+		print("Could not create and write to program " + output_file_name)
 
 	output_program.close()
-	java_program.close()
+	print("File " + output_file_name + " was successfully created")
 
 if __name__ == "__main__":
 	main()
