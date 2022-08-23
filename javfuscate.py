@@ -21,7 +21,7 @@ def is_encodable_char(char):
 	else:
 		return False
 
-def encodeLine(line):
+def encode_line(line):
 	new_line = ""
 	for char in line:
 		if is_encodable_char(char):
@@ -53,7 +53,7 @@ def main():
 	try:
 		output_program = open(output_file_name, 'w')
 		for line in java_program_lines:
-			output_program.write(encodeLine(line))
+			output_program.write(encode_line(line))
 	except IOError:
 		print("Could not create and write to program " + output_file_name)
 
