@@ -1,3 +1,5 @@
+[![License: MIT](https://black.readthedocs.io/en/stable/_static/license.svg)](https://github.com/psf/black/blob/main/LICENSE)
+
 # javfuscate
 Obfuscate java program source code
 
